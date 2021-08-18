@@ -1,0 +1,33 @@
+﻿@model PaginaAdopciones.Models.Mascota
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<section class="content jumbotron">
+    @using (Html.BeginForm("DarAdopcion", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Nombre, "Nombre")
+            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", placeholder = "Nombre de la mascota" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Edad, "Edad")
+            @Html.TextBoxFor(m => m.Edad, new { @class = "form-control", placeholder = "Edad de la mascota" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Descrip, "Descripción")
+            @Html.TextBoxFor(m => m.Descrip, new { @class = "form-control", placeholder = "Descripción de la mascota" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Correo, "Correo")
+            @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", type="email"})
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Enviar"/>
+    }
+</section>

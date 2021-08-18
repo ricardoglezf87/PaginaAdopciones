@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PaginaAdopciones.Models.Mascota>
+@{
+    ViewBag.Title = "Adpoptar";
+}
+<h1>@ViewBag.Message</h1>
+<h2>Adpoptar</h2>
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="well">
+                        <h2 class="text-warning">@item.Nombre</h2>
+                        @if (item.Adoptado)
+                        {
+                            <p><span class="label label-default">Adoptado</span></p>
+                        }
+                        else
+                        {
+                            <p><span class="label label-success">Disponible</span></p>
+                        }
+                        <ul>
+                            <li>Edad: @item.Edad</li>
+                            <li>Email: @item.Correo</li>
+                        </ul>
+                        <p><strong>DEscripción:</strong></p>
+                        <p>@item.Descrip</p>
+                        @if (item.Adoptado!=true)
+                        {
+                            <p><a class="btn btn-success btn-sm" href="#">Adoptar!</a></p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+</section>
